@@ -7,18 +7,61 @@
     </li>
     <li>
       <h3>What is a Promise?</h3>
-           <p>Promises are objects that represent the eventual outcome of an asynchronous operation. </p>
+      <p>
+        Promises are objects that represent the eventual outcome of an
+        asynchronous operation.
+      </p>
     </li>
     <li>
       <strong>A Promise object can be in one of three states:</strong>
       <ol>
-        <li><strong>Pending</strong>: The initial state— the operation has not completed yet. </li>
-        <li><strong>Fulfilled</strong>: The operation has completed successfully and the promise now has a resolved value. </li>
-        <li><strong>Rejected</strong>: The operation has failed and the promise has a reason for the failure. </li>
+        <li>
+          <strong>Pending</strong>: The initial state— the operation has not
+          completed yet.
+        </li>
+        <li>
+          <strong>Fulfilled</strong>: The operation has completed successfully
+          and the promise now has a resolved value.
+        </li>
+        <li>
+          <strong>Rejected</strong>: The operation has failed and the promise
+          has a reason for the failure.
+        </li>
       </ol>
-    
     </li>
-    <li></li>
+    <li>
+      <h3>Constructing a promise object</h3>
+      <ol>
+        <li>
+          To create a new Promise object, we use the new keyword and the Promise
+          constructor method:
+        </li>
+        <li>
+          The Promise constructor method takes a function parameter which runs
+          automatically when the constructor is called.
+        </li>
+        <li>
+          The executor function generally starts an asynchronous operation and
+          dictates how the promise should be settled.
+        </li>
+        <li>
+          When the Promise constructor runs, JavaScript will pass its own
+          resolve() and reject() functions into the executor function.
+        </li>
+        <li>
+          resolve is a function with one argument. Under the hood, if invoked,
+          resolve() will change the promise’s status from pending to fulfilled,
+          and the promise’s resolved value will be set to the argument passed
+          into resolve().
+        </li>
+        <li>
+          reject is a function that takes a reason or error as an argument.
+          Under the hood, if invoked, reject() will change the promise’s status
+          from pending to rejected, and the promise’s rejection reason will be
+          set to the argument passed into reject().
+        </li>
+      </ol>
+    </li>
     <li></li>
   </ul>
 </div>

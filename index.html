@@ -132,7 +132,26 @@
           might be more than two seconds before
           <code><em>sayHello()</em></code> is actually executed.
         </li>
-        <li></li>
+      </ol>
+    </li>
+    <li>
+      <h3>Consuming Promises</h3>
+      <img
+        src="https://content.codecademy.com/courses/updated_images/Art-347_v1_Updated_1-01.svg"
+        alt="Promise"
+      />
+      <ol style="list-style-type: lower-alpha">
+        <li>The initial state of an asynchronous promise is <code><em>pending</em></code>, but we have a guarantee that it will settle. How do we tell the computer what should happen then?</li>
+        <li>Promise objects come with an aptly named <code style="background-color: lightgray"><em>.then()</code></em> method. It allows us to say, “I have a promise, when it settles, then here’s what I want to happen…”</li>
+        <li><code style="background-color: lightgray"><em>.then()</code></em> is a higher-order function— it takes two callback functions as arguments. We refer to these callbacks as handlers. When the promise settles, the appropriate handler will be invoked with that settled value.
+        <ul style="list-style-type: lower-roman">
+          <li>The first handler, sometimes called <code style="background-color: lightgray"><em>onFulfilled</code></em>, is a success handler, and it should contain the logic for the promise resolving.</li>
+          <li>The second handler, sometimes called <code style="background-color: lightgray"><em>onRejected</code></em>, is a failure handler, and it should contain the logic for the promise rejecting.</li>
+        </ul>
+        </li>
+        <li>We can invoke <code style="background-color: lightgray"><em>.then()</code></em> with one, both, or neither handler! This allows for flexibility, but it can also make for tricky debugging.</li>
+        <li>If the appropriate handler is not provided, instead of throwing an error, <code style="background-color: lightgray"><em>.then()</code></em> will just return a promise with the same settled value as the promise it was called on.</li>
+        <li>One important feature of <code style="background-color: lightgray"><em>.then()</code></em> is that it always returns a promise.</li>
       </ol>
     </li>
   </ul>

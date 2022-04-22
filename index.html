@@ -2,11 +2,20 @@
   <h1>JAVASCRIPT PROMISES</h1>
   <ul>
     <li>
-      An asynchronous operation is one that allows the computer to “move on” to
-      other tasks while waiting for the asynchronous operation to complete.
+      An
+      <mark
+        ><code><em>asynchronous</em></code></mark
+      >
+      operation is one that allows the computer to “move on” to other tasks
+      while waiting for the asynchronous operation to complete.
     </li>
     <li>
-      <h3>What is a Promise?</h3>
+      <h3>
+        What is a
+        <code
+          ><mark><em>Promise</em></mark></code
+        >?
+      </h3>
       <p>
         Promises are objects that represent the eventual outcome of an
         asynchronous operation.
@@ -33,8 +42,8 @@
       <h3>Constructing a promise object</h3>
       <ol>
         <li>
-          To create a new Promise object, we use the new keyword and the Promise
-          constructor method:
+          To create a new Promise object, we use the
+          <code><em>new</em></code> keyword and the Promise constructor method:
         </li>
         <li>
           The Promise constructor method takes a function parameter which runs
@@ -46,22 +55,85 @@
         </li>
         <li>
           When the Promise constructor runs, JavaScript will pass its own
-          resolve() and reject() functions into the executor function.
+          <code><em>resolve()</em></code> and
+          <code><em>reject()</em></code> functions into the executor function.
         </li>
         <li>
           resolve is a function with one argument. Under the hood, if invoked,
-          resolve() will change the promise’s status from pending to fulfilled,
-          and the promise’s resolved value will be set to the argument passed
-          into resolve().
+          <code><em>resolve()</em></code> will change the promise’s status from
+          pending to fulfilled, and the promise’s resolved value will be set to
+          the argument passed into <code><em>resolve()</em></code
+          >.
         </li>
         <li>
           reject is a function that takes a reason or error as an argument.
-          Under the hood, if invoked, reject() will change the promise’s status
-          from pending to rejected, and the promise’s rejection reason will be
-          set to the argument passed into reject().
+          Under the hood, if invoked, <code><em>reject()</em></code> will change
+          the promise’s status from pending to rejected, and the promise’s
+          rejection reason will be set to the argument passed into
+          <code><em>reject()</em></code
+          >.
         </li>
       </ol>
     </li>
-    <li></li>
+    <li>
+      <h3>
+        The Node <code><em>setTimeout()</em></code> Function
+      </h3>
+      <ol>
+        <li>Knowing how to construct a promise is useful</li>
+        <li>knowing how to consume, or use, promises will be key.</li>
+        <li>
+          <code><mark>setTimeout()</mark></code> is a Node API (a comparable API
+          is provided by web browsers) that uses callback functions to schedule
+          tasks to be performed after a delay.
+        </li>
+        <li>
+          <code style="background-color: lightgray"><em>setTimeout()</em></code>
+          has two parameters:
+          <ol style="list-style-type: lower-roman">
+            <li>a callback function and</li>
+            <li>a delay in milliseconds.</li>
+          </ol>
+        </li>
+        <li>
+          Syntax:
+          <code style="background-color: lightgray"
+            ><em>setTimeout( callback, delay );</em></code
+          >
+        </li>
+        <li>
+          Example:
+          <code style="background-color: lightyellow"
+            ><em>setTimeout( sayHello, 2000 );</em></code
+          >
+        </li>
+        <li>
+          Here, we invoke <code><em>setTimeout()</em></code> with the callback
+          function <code><em>sayHello()</em></code> and 2000. In at least two
+          seconds <code><em>sayHello()</em></code> will be invoked.
+        </li>
+        <li>
+          This delay is performed asynchronously—the rest of our program won’t
+          stop executing during the delay.
+        </li>
+        <li>
+          Asynchronous JavaScript uses something called the
+          <strong>event-loop</strong>.
+        </li>
+        <li>
+          After two seconds, <code><em>sayHello()</em></code> is added to a line
+          of code waiting to be run.
+        </li>
+        <li>
+          Before it can run, any synchronous code from the program will run.
+        </li>
+        <li>
+          Next, any code in front of it in the line will run. This means it
+          might be more than two seconds before
+          <code><em>sayHello()</em></code> is actually executed.
+        </li>
+        <li></li>
+      </ol>
+    </li>
   </ul>
 </div>

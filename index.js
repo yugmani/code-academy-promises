@@ -136,5 +136,50 @@ const handlingSuccess = (resolvedValue) => console.log(resolvedValue);
 const handlingFailure = (rejectionReason) => console.log(rejectionReason);
 
 //4. Invoke checkInventory() with order. This will return a promise. Attach a .then() function to this. Pass into .then() the two handlers you wrote as callback functions.
-checkInventory(order).then(handlingSuccess, handlingFailure);
+
+// checkInventory(order).then(handlingSuccess, handlingFailure);
 //Thank you. Your order was successful. ->when promise is success
+
+//Using catch() with Promises
+// ***********************************************
+
+// chain a second .then() with a failure handler to a first .then() with a success handler and both cases will be handled.
+
+const promOne = new Promise((resolve, reject) => {
+  resolve('Ohm Namah Shivay!');
+  reject("I don't like going down");
+});
+
+/*
+promOne
+  .then((resolvedValue) => {
+    console.log(resolvedValue);
+  })
+  .then(null, (rejectionReason) => {
+    console.log(rejectionReason);
+  });
+*/
+
+//Let’s look at an example using .catch():
+promOne
+  .then((resolvedValue) => {
+    console.log(resolvedValue);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });
+
+//Tasks
+//-------------------------------------------------
+
+//1. We’re going to refactor the functionality of the previous exercise but this time we’ll use .catch()! First invoke the checkInventory() function with the order. Remember, this function will return a promise.
+
+//2. Add a .then() to the returned promise. Pass in the success handler handleSuccess().
+
+//3. Add a .catch() to the returned promise. Pass in the failure handler handleFailure().
+checkInventory(order).then(handlingSuccess).catch(handlingFailure);
+
+//4. We set our inventory( see library.js) of sunglasses to 0, so the order shouldn’t go through. Let’s make sure our code has the expected results. Type node app.js in the terminal and hit enter.
+
+//Since there is no enough sunglasses in the inventory, the promise to order is failed and prints as:
+// We're sorry. Your order could not be completed because some items are sold out.

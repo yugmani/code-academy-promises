@@ -162,5 +162,19 @@
      <li>Note: The success callback is sometimes called the “success handler function” or the <code style="background-color: lightgray"><em>onFulfilled</code></em> function. The failure callback is sometimes called the “failure handler function” or the <code style="background-color: lightgray"><em>onRejected</code></em> function. </li>    
    </ol>
     </li>
+    <li>
+      <h3>Using <code style="background-color: lightgray"><em>catch()</code></em> with Promises</h3>
+      <ol style="list-style-type:lower-alpha">
+        <li>One way to write cleaner code is to follow a principle called <strong>Separation of Concerns:</strong></li>
+        <li>Separation of concerns means organizing code into distinct sections each handling a specific task. It enables us to quickly navigate our code and know where to look if something isn’t working.</li>
+        <li>Remember, <code style="background-color: lightgray"><em>.then()</code></em> will return a promise with the same settled value as the promise it was called on if no appropriate handler was provided. </li>
+        <li>This implementation allows us to separate our resolved logic from our rejected logic. </li>
+        <li>Instead of passing both handlers into one <code style="background-color: lightgray"><em>.then()</code></em>, we can chain a second <code style="background-color: lightgray"><em>.then()</code></em> with a failure handler to a first .then()</code></em> with a success handler and both cases will be handled.</li>
+        <li>Instead of passing both handlers into one <code style="background-color: lightgray"><em>.then()</code></em>, we can chain a second <code style="background-color: lightgray"><em>.then()</code></em> with a failure handler to a first <code style="background-color: lightgray"><em>.then()</code></em> with a success handler and both cases will be handled.</li>
+        <li>To create even more readable code, we can use a different promise function: <code style="background-color: lightgray"><em>.catch()</code></em>.</li>
+        <li>The <code style="background-color: lightgray"><em>.catch()</code></em> function takes only one argument, <code style="background-color: lightgray"><em>onRejected</code></em>. In the case of a rejected promise, this failure handler will be invoked with the reason for rejection.</li>
+        <li>Using <code style="background-color: lightgray"><em>.catch()</code></em>accomplishes the same thing as using a <code style="background-color: lightgray"><em>.then()</code></em> with only a failure handler.</li>
+      </ol>
+    </li>
   </ul>
 </div>

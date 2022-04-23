@@ -75,3 +75,66 @@ console.log('This is the last line of code in app.js.');
 // This is the last line of code in app.js.
 // Hello! This is an asynchronous greeting!?
 // Testing Asynchronous code!
+
+// Success and Failure Callback Functions
+// **********************************************
+
+//eg1.
+const prom = new Promise((resolve, reject) => {
+  resolve('Yay!');
+});
+
+const handleSuccess = (resolvedValue) => console.log(resolvedValue);
+
+prom.then(handleSuccess);
+//Yay! ->printed!
+
+//eg2.
+let extendedPromise = new Promise((resolve, reject) => {
+  let num = Math.random();
+  if (num < 0.5) {
+    resolve('Hello!');
+  } else {
+    reject('Ohh nooo!');
+  }
+});
+
+const handlerSuccess = (result) => console.log(result);
+
+const handlerFailure = (result) => console.log(result);
+
+extendedPromise.then(handleSuccess, handlerFailure);
+//Hello! ->when promise is success
+//Ohh nooo! ->when promise is failed.
+
+//Tasks
+// ******************************** */
+
+//1.  We use require() to include the function checkInventory() from library.js. It builds on the logic of the orderSunglasses() function you wrote in a previous exercise.
+//look at the library.js file to see how it works.
+const { checkInventory } = require('./library.js');
+
+const order = [
+  ['sunglasses', 1],
+  ['bags', 2],
+];
+// checkInventory() takes in an array representing an order and returns a promise.
+
+// If every item in the order is in stock, that promise resolves with the value "Thank you. Your order was successful."
+
+// Otherwise, the promise rejects with the value "We're sorry. Your order could not be completed because some items are sold out".
+
+// We used setTimeout() to ensure that the checkInventory() promise settles asynchronously.
+
+// Write your code below:
+// ------------------------------------------
+
+//2.  Write a function, handleSuccess(). You’ll use this function later on as your success handler. handleSuccess() should have one parameter, representing a resolved value. Inside the body of handleSuccess(), log the parameter to the console.
+const handlingSuccess = (resolvedValue) => console.log(resolvedValue);
+
+//3. Write a function, handleFailure(). You’ll use this function later on as your failure handler. handleFailure() should have one parameter, representing a rejection reason. Inside the body of handleFailure(), log the parameter to the console.
+const handlingFailure = (rejectionReason) => console.log(rejectionReason);
+
+//4. Invoke checkInventory() with order. This will return a promise. Attach a .then() function to this. Pass into .then() the two handlers you wrote as callback functions.
+checkInventory(order).then(handlingSuccess, handlingFailure);
+//Thank you. Your order was successful. ->when promise is success

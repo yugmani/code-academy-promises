@@ -154,5 +154,13 @@
         <li>One important feature of <code style="background-color: lightgray"><em>.then()</code></em> is that it always returns a promise.</li>
       </ol>
     </li>
+    <li>
+   <h3>Success and Failure Callback Functions</h3>
+   <ol>
+     <li>To handle a “successful” promise, or a promise that resolved, we invoke <code style="background-color: lightgray"><em>.then()</code></em> on the promise, passing in a success handler callback function:</li>
+     <li>With typical promise consumption, we won’t know whether a promise will resolve or reject, so we’ll need to provide the logic for either case. We can pass both a success callback and a failure callback to <code style="background-color: lightgray"><em>.then()</code></em>.</li>
+     <li>Note: The success callback is sometimes called the “success handler function” or the <code style="background-color: lightgray"><em>onFulfilled</code></em> function. The failure callback is sometimes called the “failure handler function” or the <code style="background-color: lightgray"><em>onRejected</code></em> function. </li>    
+   </ol>
+    </li>
   </ul>
 </div>

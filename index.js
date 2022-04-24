@@ -183,3 +183,6 @@ checkInventory(order).then(handlingSuccess).catch(handlingFailure);
 
 //Since there is no enough sunglasses in the inventory, the promise to order is failed and prints as:
 // We're sorry. Your order could not be completed because some items are sold out.
+
+
+
